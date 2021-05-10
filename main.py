@@ -12,8 +12,9 @@ def main(event, context):
     client = bigquery.Client()
 
     job_config = bigquery.LoadJobConfig(
-        schema=[bigquery.SchemaField("name", "STRING"),
-            bigquery.SchemaField("post_abbr", "STRING")],
+        schema=[bigquery.SchemaField("first_name", "STRING"),
+                bigquery.SchemaField("last_name", "STRING"),
+                bigquery.SchemaField("age", "INT64")],
         skip_leading_rows=1, source_format=bigquery.SourceFormat.CSV)
 
     load_job = client.load_table_from_uri(
