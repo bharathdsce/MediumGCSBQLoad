@@ -6,8 +6,8 @@ def main(event, context):
     bq_table = <BQ Table Name>
     file_name = event["name"]
     bucket_name = event["bucket"]
-    gcs_uri = "gs://{bucket_name}/{file_name}".format(bucket_name, file_name)
-    table_id = "{project_id}.{bq_dataset}.{bq_table}".format(project_id, bq_dataset, bq_table)
+    gcs_uri = "gs://{}/{}".format(bucket_name, file_name)
+    table_id = "{}.{}.{}".format(project_id, bq_dataset, bq_table)
 
     client = bigquery.Client()
 
